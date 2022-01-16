@@ -6,7 +6,8 @@
      <scroll class="content" ref="scroll" :probe-type='3' 
      @scroll='contentScroll' :pull-up-load="true"
      @pullingUp='looadMore'>
-             <homeswiper :banners="banners"></homeswiper>
+             <homeswiper :banners="banners"
+            ></homeswiper>
     <homerecommview :recommends="recommends"></homerecommview>
     <homefeature></homefeature>
     <tabControl

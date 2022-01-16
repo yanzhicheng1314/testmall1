@@ -1,6 +1,6 @@
 <template>
   <div id='app'>
-    <router-view></router-view>
+    <router-view/>
     <tabbar>
           <tabbaritem path="/home">
         <img slot="item-icon" src="./assets/img/tabbar/B-.png" alt="" />
