@@ -13,7 +13,7 @@
     <goodslist ref="recommend" :goods="recommends"/>
     </scroll>
     <detailbottombar @addcart="addcart"/>
-   
+   <toast :message="message" :show='show'/>
   </div>
 </template>
 
@@ -31,6 +31,8 @@ import detailbottombar from "./childComponents/detailbottombar.vue"
 
 import scroll from "../../components/common/scroll/scroll.vue";
 import goodslist from "../../components/content/goods/goodslist.vue"
+import toast from "../../components/common/toast/toast.vue"
+
 import { getDetail, Goods, Shop,GoodsParam,getRecommend } from "../../network/detail";
 export default {
   name: "detail",
@@ -45,6 +47,7 @@ export default {
     detailcommentinfo,
     detailbottombar,
     goodslist,
+    toast
  
   
   },
@@ -60,7 +63,9 @@ export default {
       recommends:[],
       themeTopY:[],
       currentIndex:0,
-      product:{}
+      product:{},
+      message:'',
+      show:false
     };
   },
   created() {
@@ -135,6 +140,11 @@ export default {
     this.product.iid=this.iid;
 
     this.$store.commit('addcart',this.product)
+    this.message='加入购物车成功'
+    this.show=true
+    setTimeout(()=>{
+      this.show=false
+    },2000)
    }
   }
 };
